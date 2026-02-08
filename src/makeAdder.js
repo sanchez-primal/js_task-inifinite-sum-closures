@@ -7,21 +7,22 @@ function makeAdder() {
   let sum = 0;
 
   const adder = (number) => {
-    if (number === undefined) {
-      const returnValue = sum;
+    // I like it better
+    if (typeof number === 'number') {
+      sum += number;
 
-      sum = 0;
-
-      return returnValue;
+      return adder;
     }
 
-    if (typeof number !== 'number') {
+    if (number !== undefined) {
       return;
     }
 
-    sum += number;
+    const returnValue = sum;
 
-    return adder;
+    sum = 0;
+
+    return returnValue;
   };
 
   return adder;
